@@ -15,6 +15,8 @@
 		12B778EF2504FECC003131B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12B778ED2504FECC003131B8 /* LaunchScreen.storyboard */; };
 		12B778FA2504FECC003131B8 /* docSuggestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B778F92504FECC003131B8 /* docSuggestTests.swift */; };
 		12B779052504FECC003131B8 /* docSuggestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B779042504FECC003131B8 /* docSuggestUITests.swift */; };
+		12B77915250512E6003131B8 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B77914250512E6003131B8 /* Schedule.swift */; };
+		12B7791725051D5F003131B8 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B7791625051D5F003131B8 /* MainTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		12B779002504FECC003131B8 /* docSuggestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = docSuggestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12B779042504FECC003131B8 /* docSuggestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = docSuggestUITests.swift; sourceTree = "<group>"; };
 		12B779062504FECC003131B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12B77914250512E6003131B8 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		12B7791625051D5F003131B8 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				12B778E42504FECA003131B8 /* SceneDelegate.swift */,
 				12B778E62504FECA003131B8 /* ViewController.swift */,
 				12B778E82504FECA003131B8 /* Main.storyboard */,
+				12B7791625051D5F003131B8 /* MainTableViewCell.swift */,
+				12B77914250512E6003131B8 /* Schedule.swift */,
 				12B778EB2504FECC003131B8 /* Assets.xcassets */,
 				12B778ED2504FECC003131B8 /* LaunchScreen.storyboard */,
 				12B778F02504FECC003131B8 /* Info.plist */,
@@ -261,7 +267,9 @@
 			files = (
 				12B778E72504FECA003131B8 /* ViewController.swift in Sources */,
 				12B778E32504FECA003131B8 /* AppDelegate.swift in Sources */,
+				12B77915250512E6003131B8 /* Schedule.swift in Sources */,
 				12B778E52504FECA003131B8 /* SceneDelegate.swift in Sources */,
+				12B7791725051D5F003131B8 /* MainTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
