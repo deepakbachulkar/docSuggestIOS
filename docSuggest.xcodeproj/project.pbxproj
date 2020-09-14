@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12290CDF250DF14100B5D3A7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12290CDE250DF14100B5D3A7 /* NetworkManager.swift */; };
+		12290CE1250DF1CD00B5D3A7 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12290CE0250DF1CD00B5D3A7 /* APIResponses.swift */; };
+		12290CE3250E2FF700B5D3A7 /* DatabaseMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12290CE2250E2FF700B5D3A7 /* DatabaseMaster.swift */; };
+		12290CE5250E5EE100B5D3A7 /* TransactionDetailsVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12290CE4250E5EE100B5D3A7 /* TransactionDetailsVO.swift */; };
+		12290CE7250E8AA400B5D3A7 /* InfoDilogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12290CE6250E8AA400B5D3A7 /* InfoDilogViewController.swift */; };
 		12B778E32504FECA003131B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B778E22504FECA003131B8 /* AppDelegate.swift */; };
 		12B778E52504FECA003131B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B778E42504FECA003131B8 /* SceneDelegate.swift */; };
 		12B778E72504FECA003131B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B778E62504FECA003131B8 /* ViewController.swift */; };
@@ -15,8 +20,9 @@
 		12B778EF2504FECC003131B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12B778ED2504FECC003131B8 /* LaunchScreen.storyboard */; };
 		12B778FA2504FECC003131B8 /* docSuggestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B778F92504FECC003131B8 /* docSuggestTests.swift */; };
 		12B779052504FECC003131B8 /* docSuggestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B779042504FECC003131B8 /* docSuggestUITests.swift */; };
-		12B77915250512E6003131B8 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B77914250512E6003131B8 /* Schedule.swift */; };
+		12B77915250512E6003131B8 /* MasterVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B77914250512E6003131B8 /* MasterVO.swift */; };
 		12B7791725051D5F003131B8 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B7791625051D5F003131B8 /* MainTableViewCell.swift */; };
+		12B7791925067309003131B8 /* ServerDeleget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B7791825067309003131B8 /* ServerDeleget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12290CDE250DF14100B5D3A7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		12290CE0250DF1CD00B5D3A7 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
+		12290CE2250E2FF700B5D3A7 /* DatabaseMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseMaster.swift; sourceTree = "<group>"; };
+		12290CE4250E5EE100B5D3A7 /* TransactionDetailsVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsVO.swift; sourceTree = "<group>"; };
+		12290CE6250E8AA400B5D3A7 /* InfoDilogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDilogViewController.swift; sourceTree = "<group>"; };
 		12B778DF2504FECA003131B8 /* docSuggest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = docSuggest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12B778E22504FECA003131B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12B778E42504FECA003131B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,8 +62,9 @@
 		12B779002504FECC003131B8 /* docSuggestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = docSuggestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12B779042504FECC003131B8 /* docSuggestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = docSuggestUITests.swift; sourceTree = "<group>"; };
 		12B779062504FECC003131B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12B77914250512E6003131B8 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		12B77914250512E6003131B8 /* MasterVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterVO.swift; sourceTree = "<group>"; };
 		12B7791625051D5F003131B8 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		12B7791825067309003131B8 /* ServerDeleget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDeleget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,14 +116,20 @@
 			isa = PBXGroup;
 			children = (
 				12B778E22504FECA003131B8 /* AppDelegate.swift */,
+				12290CE0250DF1CD00B5D3A7 /* APIResponses.swift */,
 				12B778E42504FECA003131B8 /* SceneDelegate.swift */,
 				12B778E62504FECA003131B8 /* ViewController.swift */,
 				12B778E82504FECA003131B8 /* Main.storyboard */,
 				12B7791625051D5F003131B8 /* MainTableViewCell.swift */,
-				12B77914250512E6003131B8 /* Schedule.swift */,
+				12B77914250512E6003131B8 /* MasterVO.swift */,
 				12B778EB2504FECC003131B8 /* Assets.xcassets */,
 				12B778ED2504FECC003131B8 /* LaunchScreen.storyboard */,
 				12B778F02504FECC003131B8 /* Info.plist */,
+				12B7791825067309003131B8 /* ServerDeleget.swift */,
+				12290CDE250DF14100B5D3A7 /* NetworkManager.swift */,
+				12290CE2250E2FF700B5D3A7 /* DatabaseMaster.swift */,
+				12290CE4250E5EE100B5D3A7 /* TransactionDetailsVO.swift */,
+				12290CE6250E8AA400B5D3A7 /* InfoDilogViewController.swift */,
 			);
 			path = docSuggest;
 			sourceTree = "<group>";
@@ -266,8 +284,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				12B778E72504FECA003131B8 /* ViewController.swift in Sources */,
+				12B7791925067309003131B8 /* ServerDeleget.swift in Sources */,
+				12290CE7250E8AA400B5D3A7 /* InfoDilogViewController.swift in Sources */,
+				12290CE1250DF1CD00B5D3A7 /* APIResponses.swift in Sources */,
 				12B778E32504FECA003131B8 /* AppDelegate.swift in Sources */,
-				12B77915250512E6003131B8 /* Schedule.swift in Sources */,
+				12290CE5250E5EE100B5D3A7 /* TransactionDetailsVO.swift in Sources */,
+				12290CDF250DF14100B5D3A7 /* NetworkManager.swift in Sources */,
+				12290CE3250E2FF700B5D3A7 /* DatabaseMaster.swift in Sources */,
+				12B77915250512E6003131B8 /* MasterVO.swift in Sources */,
 				12B778E52504FECA003131B8 /* SceneDelegate.swift in Sources */,
 				12B7791725051D5F003131B8 /* MainTableViewCell.swift in Sources */,
 			);
