@@ -10,9 +10,16 @@ import UIKit
 
 class InfoDilogViewController: UIViewController {
 
+    @IBAction func actionUpdate(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    @IBOutlet weak var btnUpdate: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.isOpaque = false
+           view.backgroundColor = .clear
         // Do any additional setup after loading the view.
     }
     

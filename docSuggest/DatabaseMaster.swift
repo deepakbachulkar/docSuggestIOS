@@ -117,7 +117,7 @@ class DatabseMaster
   
     
     func read() -> [MasterVO] {
-        let queryStatementString = "SELECT * FROM dbTblVacCalMst group by Shedule;"
+        let queryStatementString = "SELECT * FROM dbTblVacCalMst group by AgeDays;"
         var queryStatement: OpaquePointer? = nil
         var psns : [MasterVO] = []
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
