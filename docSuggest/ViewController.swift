@@ -79,8 +79,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }else{
 //            let bundle = Bundle()
 //            bundle.
-            
-//            (transcationDetailsList[indexPath.row]: TransactionDetails)
+             
+            let transcationDetails = transcationDetailsList[indexPath.row]
+
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                    let myAlert = storyboard.instantiateViewController(withIdentifier: "info")
                    myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
