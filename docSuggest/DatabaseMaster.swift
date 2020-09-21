@@ -104,6 +104,8 @@ class DatabseMaster
                }
                
                if sqlite3_step(insertStatement) == SQLITE_DONE {
+                
+                
 //                   print("Successfully inserted row.")
                } else {
                    print("Could not insert row.")

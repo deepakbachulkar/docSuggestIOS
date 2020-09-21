@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var framName: UITextField!
     var selectedDate = "09-09-2020"
     var masterList = [MasterVO]()
     var transcationDetailsList = [TransactionDetails]()
@@ -27,6 +28,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    @IBAction func date_action(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let myAlert = storyboard.instantiateViewController(withIdentifier: "date_picker")
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        self.present(myAlert, animated: true, completion: nil)
+    }
     @IBAction func onClick(_ sender: UIButton) {
         if(self.scheduleTableView.isHidden){
             self.scheduleTableView.isHidden = false
@@ -40,6 +48,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.scheduleTableView.isHidden = true
         textDate.setTitle(Utils().getToday(), for: .normal)
         apiCall()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        selectedDate = Constants.selectedDate
+        textDate.setTitle(selectedDate, for: .normal)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,24 +90,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.scheduleTableView.isHidden = true
             self.btnScheduler.setTitle(value, for: .normal)
         }else{
-//            let bundle = Bundle()
-//            bundle.
-             
-            let transcationDetails = transcationDetailsList[indexPath.row]
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                   let myAlert = storyboard.instantiateViewController(withIdentifier: "info")
-                   myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-                   myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-                
-                   self.present(myAlert, animated: true, completion: nil)
-            
-            
+            if(isValid()){
+                let selectedTransactionMaster = TransactionMaster(framName: framName.text ?? "", Schedule: btnScheduler.currentTitle ?? "", date: selectedDate)
+                let transcationDetails = transcationDetailsList[indexPath.row]
+                Constants.selectedTransactionDetails = transcationDetails
+                Constants.selectedTransactionMaster = selectedTransactionMaster
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let myAlert = storyboard.instantiateViewController(withIdentifier: "info")
+                myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                self.present(myAlert, animated: true, completion: nil)
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         print(indexPath)
+    }
+    
+    func isValid() -> Bool {
+        let value = btnScheduler.currentTitle
+        if(framName.text == nil || framName.text == ""){
+            return false
+        }
+        else if(value==nil || value == "Select Scheduler" ){
+            return false
+        }
+        else{
+            return true
+        }
     }
     
     func apiCall(){

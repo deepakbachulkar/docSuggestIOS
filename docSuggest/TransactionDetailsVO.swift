@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct TransactionDetails: Codable {
   let VaccineCode: String
   let VaccineName: String
@@ -21,5 +22,17 @@ struct TransactionDetails: Codable {
         self.AgeDays = AgeDays
         self.Schedule = Schedule
         self.comment = comment
+  }
+}
+
+struct TransactionMaster: Codable {
+  let framName: String
+  let Schedule: String
+  let date: String
+
+  init(framName: String,  Schedule:String, date: String) {
+        self.framName = framName
+        self.Schedule = Schedule
+        self.date = date
   }
 }
