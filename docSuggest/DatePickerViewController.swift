@@ -18,9 +18,6 @@ class DatePickerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-
-
     @IBAction func dat_picker_action(_ sender: Any) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.short
@@ -39,3 +36,4 @@ class DatePickerViewController: UIViewController {
          dismiss(animated: true, completion: nil)
     }
 }
+

@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UpdateDelegate {
+  
+    var selectedTransactionMaster:TransactionMaster?
     @IBOutlet weak var framName: UITextField!
     var selectedDate = "09-09-2020"
     var masterList = [MasterVO]()
@@ -41,19 +42,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             self.scheduleTableView.isHidden = true
         }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scheduleTableView.isHidden = true
         textDate.setTitle(Utils().getToday(), for: .normal)
+        selectedDate  = Utils().getToday()
+        textDate.setTitle(selectedDate, for: .normal)
         apiCall()
+        print("viewDidLoad")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        selectedDate = Constants.selectedDate
-        textDate.setTitle(selectedDate, for: .normal)
-    }
+  
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(scheduleTableView == tableView){
@@ -90,16 +92,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.scheduleTableView.isHidden = true
             self.btnScheduler.setTitle(value, for: .normal)
         }else{
+            
             if(isValid()){
-                let selectedTransactionMaster = TransactionMaster(framName: framName.text ?? "", Schedule: btnScheduler.currentTitle ?? "", date: selectedDate)
                 let transcationDetails = transcationDetailsList[indexPath.row]
                 Constants.selectedTransactionDetails = transcationDetails
                 Constants.selectedTransactionMaster = selectedTransactionMaster
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let myAlert = storyboard.instantiateViewController(withIdentifier: "info")
+                let view = myAlert as! InfoDilogViewController
+                view.updateDelegate = self
                 myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
                 myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
                 self.present(myAlert, animated: true, completion: nil)
+            }else{
+                db.deleteByTransDetails( id: transcationDetailsList[indexPath.row].id)
+                transcationDetailsList = db.readTransDetailsList()
+                       self.tableViewMain.reloadData()
             }
         }
     }
@@ -142,21 +150,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func calcuteTransaction(scheduler:String){
+        
+        selectedTransactionMaster = TransactionMaster(framName: framName.text ?? "", Schedule: btnScheduler.currentTitle ?? "", date: selectedDate)
+            let id  = db.insertTransMaster(data:selectedTransactionMaster!)
+            print(id)
+        
         let list:[MasterVO] = db.readSingleScheduler(scheduler: scheduler)
         transcationDetailsList = [TransactionDetails]()
         for item in list {
-            transcationDetailsList.append(
-                TransactionDetails(
-                    VaccineCode: item.VaccineCode ?? "",
-                    VaccineName: item.VaccineName ?? "",
-                    Schedule: item.Schedule ?? "",
-                    AgeDays: item.AgeDays ?? "0",
-                    comment: ""
-                )
-            )
+            db.insertTransDetails(id: id, data:  TransactionDetails(
+                               VaccineCode: item.VaccineCode ?? "",
+                               VaccineName: item.VaccineName ?? "",
+                               Schedule: item.Schedule ?? "",
+                               AgeDays: item.AgeDays ?? "0",
+                               comment: ""
+                           ))
         }
+        transcationDetailsList = db.readTransDetailsList()
         self.tableViewMain.reloadData()
     }
+    
+  
+    
 
     //    func showDatePicker(){
 //           //Formate Date
@@ -187,4 +202,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //       func cancelDatePicker(){
 //           self.view.endEditing(true)
 //       }
+    
+    func update(details: TransactionDetails) {
+          print("Updated delegate")
+         transcationDetailsList = db.readTransDetailsList()
+               self.tableViewMain.reloadData()
+    }
+
 }
+protocol UpdateDelegate{
+      func update(details: TransactionDetails)
+  }

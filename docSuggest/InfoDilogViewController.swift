@@ -9,8 +9,10 @@
 import UIKit
 
 class InfoDilogViewController: UIViewController {
-
-    
+    var updateDelegate: UpdateDelegate?
+    var db:DatabseMaster = DatabseMaster()
+    var details:TransactionDetails?
+      
     @IBOutlet weak var btnUpdate: UIButton!
     
    
@@ -21,20 +23,15 @@ class InfoDilogViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var comment: UITextView!
     
-    @IBAction func outside_age(_ sender: Any) {
-        print("outside_age")
-    }
     
-    @IBAction func ageAction(_ sender: Any) {
-            print("action")
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.isOpaque = false
         view.backgroundColor = .clear
         // Do any additional setup after loading the view.
         let master = Constants.selectedTransactionMaster
-        let details = Constants.selectedTransactionDetails
+        details = Constants.selectedTransactionDetails
         header.text = master?.framName
         age.text = details?.AgeDays
         date.text = Utils().convertNextDate(date: master?.date ?? "", days: Int(details?.AgeDays ?? "0") ?? 0)
@@ -44,9 +41,17 @@ class InfoDilogViewController: UIViewController {
     }
     
     @IBAction func actionUpdate(_ sender: Any) {
+        details?.AgeDays = age.text!
+        details?.comment = comment.text ??  ""
+        details?.VaccineName = name.text!
+        db.updateTransDetails(transDetails: details!)
+        updateDelegate?.update(details: details!)
         dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func actionCancel(_ sender: Any) {
+         dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
